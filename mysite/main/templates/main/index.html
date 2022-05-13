@@ -1,0 +1,18 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="features">
+    {% if request.user.is_authenticated %}
+    <h1>Доступные разделы:</h1>
+    <ul>
+        <li><a href="{% url 'study_plan' %}">Учебный план</a></li>
+        <li><a href="{% url 'all_topics' %}">Все темы</a></li>
+    </ul>
+    {% else %}
+    <h1>Добро пожаловать на наш сайт!</h1>
+    <p><a href="{% url 'login' %}">Войдите</a> или <a href="{% url 'register' %}">зарегистрируйтесь</a>, чтобы продолжить.</p>
+    {% endif %}
+</div>
+{% endblock %}

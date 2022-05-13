@@ -1,0 +1,16 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}{{ Задача }}{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>{{ data.title }}</h1>
+        <p>\(\text{ {{ data.condition }} }\)</p>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.answer }} <br>
+            <input type="hidden" name="my_id" value="{{ data.id }}" />
+            <button class="btn btn-success" type="submit">Продолжить</button>
+        </form>
+    </div>
+{% endblock %}

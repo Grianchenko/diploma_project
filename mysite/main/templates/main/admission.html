@@ -1,0 +1,11 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Вступительное тестирование{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Вступительное тестирование</h1>
+        <p>Пройдите тестирование из 10 задач. На основе результатов искуственный интеллект предложит несколько тем. Их стоит пройти для устрения пробелов в знаниях, которые мешают успешному усвоению точных наук.</p>
+        <a href="{% url 'admission_task' id %}"><button class="btn btn-success" type="submit">Приступить!</button></a>
+    </div>
+{% endblock %}

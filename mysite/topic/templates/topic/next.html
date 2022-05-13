@@ -1,0 +1,12 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}{{ data.title }}{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>{{ data.title }}</h1>
+        <p>{{ data.condition }}</p>
+        <p>Ваш ответ: \({{ data.answer }}\)</p>
+        <a href="{% url 'task' id %}"><button class="btn btn-success" type="submit">Следующая задача</button></a>
+    </div>
+{% endblock %}

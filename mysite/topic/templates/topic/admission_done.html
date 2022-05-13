@@ -1,0 +1,11 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Тестирование пройдено{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Тестирование окончено!</h1>
+        <p>Вы прошли вступительное тестирование! Теперь можно продолжить учиться согласно учебному плану.</p>
+        <a href="{% url 'study_plan' %}"><button class="btn btn-primary" type="submit">К учебному плану</button></a>
+    </div>
+{% endblock %}

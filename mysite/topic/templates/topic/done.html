@@ -1,0 +1,11 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Тема изучена{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Поздравляем!</h1>
+        <p>Вы изучили тему и можете двигаться дальше!</p>
+        <a href="{% url 'study_plan' %}"><button class="btn btn-primary" type="submit">К учебному плану</button></a>
+    </div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}{{ problem.title }}{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>{{ problem.title }}</h1>
+        <p>{{ problem.condition }} </p>
+    </div>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.answer }} <br>
+            <input type="hidden" name="my_id" value="{{ problem.id }}" />
+            <button class="btn btn-success" type="submit">Проверить</button>
+        </form>
+{% endblock %}

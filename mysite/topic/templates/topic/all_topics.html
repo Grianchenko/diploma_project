@@ -1,0 +1,14 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="features">
+    <h1>Все доступные темы</h1>
+    <ul>
+        {% for key, value in themes.items %}
+        <li><a href="{% url value %}">{{ key }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

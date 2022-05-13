@@ -1,0 +1,14 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Задача решена неверно{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Задача решена неверно</h1>
+        <p>Прочитайте теорию еще раз и попробуйте решить новую задачу.</p>
+        <p>{{ data.condition }} </p>
+        <p>Ваш ответ: \({{wrong_answer}}\) </p>
+        <p>Правильный ответ: \({{data.answer}}\) </p>
+        <a href="{% url data.theme %}"><button class="btn btn-warning" type="submit">Вернуться к теории</button></a>
+    </div>
+{% endblock %}

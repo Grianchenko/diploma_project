@@ -1,0 +1,11 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Треугольник{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Треугольник</h1>
+        <p>Какая-то теория</p>
+        <a href="{% url 'task' id %}"><button class="btn btn-success" type="submit">Начать решать!</button></a>
+    </div>
+{% endblock %}
