@@ -24,7 +24,7 @@ def all_topics(request):
         'themes': {'Арифметика': 'count', 'Вектор': 'vector', 'Объем': 'volume', 'Округление': 'rounding',
                    'Площадь': 'area', 'Процент': 'percent', 'Рациональная дробь': 'rational',
                    'Стандартный вид числа': 'standard', 'Степень': 'power',
-                   'Тригонометрия': 'periodic', 'Угол': 'angle', 'Уравнение': 'equation', 'Функция': 'function',
+                   'Тригонометрия': 'periodic', 'Угол': 'angle', 'Уравнения': 'equation', 'Функция': 'function',
                    }
     }  # 'Логарифм': 'log', 'Производная': 'derivative', 'Интеграл': 'integral', 'Треугольник': 'triangle',
     return render(request, 'topic/all_topics.html', data)
