@@ -23,10 +23,10 @@ def all_topics(request):
         'title': 'Все доступные темы',
         'themes': {'Арифметика': 'count', 'Вектор': 'vector', 'Объем': 'volume', 'Округление': 'rounding',
                    'Площадь': 'area', 'Процент': 'percent', 'Рациональная дробь': 'rational',
-                   'Стандартный вид числа': 'standard', 'Степень': 'power', 'Треугольник': 'triangle',
+                   'Стандартный вид числа': 'standard', 'Степень': 'power',
                    'Тригонометрия': 'periodic', 'Угол': 'angle', 'Уравнение': 'equation', 'Функция': 'function',
                    }
-    }  # 'Логарифм': 'log', 'Производная': 'derivative', 'Интеграл': 'integral'
+    }  # 'Логарифм': 'log', 'Производная': 'derivative', 'Интеграл': 'integral', 'Треугольник': 'triangle',
     return render(request, 'topic/all_topics.html', data)
 
 
@@ -108,7 +108,7 @@ class TaskDetailView(DetailView, FormView):
                         'id': n
                     }
                     return render(request, 'topic/next.html', data)
-                elif (self.object.theme == 'power' or self.object.theme == 'count' or self.object.theme == 'area') \
+                elif (self.object.theme in ['power', 'count', 'area', 'angle', 'periodic', 'vector']) \
                         and TaskDetailView.counter < 4:
                     TaskDetailView.counter += 1
                     n = self.object.id
@@ -130,6 +130,43 @@ class TaskDetailView(DetailView, FormView):
                                 n = random.randint(469, 493)
                             elif TaskDetailView.counter < 5:
                                 n = random.randint(494, 508)
+                        if self.object.theme == 'angle':
+                            if TaskDetailView.counter < 2:
+                                n = random.randint(564, 609)
+                            elif TaskDetailView.counter < 5:
+                                n = random.randint(609, 702)
+                        if self.object.theme == 'periodic':
+                            if TaskDetailView.counter < 2:
+                                n = random.randint(703, 752)
+                            elif TaskDetailView.counter < 3:
+                                n = random.randint(753, 778)
+                            elif TaskDetailView.counter < 5:
+                                n = random.randint(778, 832)
+                        if self.object.theme == 'vector':
+                            if TaskDetailView.counter < 2:
+                                n = random.randint(893, 922)
+                            elif TaskDetailView.counter < 3:
+                                n = random.randint(923, 942)
+                            elif TaskDetailView.counter < 5:
+                                n = random.randint(943, 982)
+                        if self.object.theme == 'equation':
+                            if TaskDetailView.counter < 2:
+                                n = random.randint(1013, 1042)
+                            elif TaskDetailView.counter < 3:
+                                n = random.randint(1085, 1114)
+                            elif TaskDetailView.counter < 4:
+                                n = random.randint(1043, 1054)
+                            elif TaskDetailView.counter < 5:
+                                n = random.randint(1055, 1084)
+                        if self.object.theme == 'function':
+                            if TaskDetailView.counter < 2:
+                                n = random.randint(1198, 1256)
+                            elif TaskDetailView.counter < 3:
+                                n = random.randint(1257, 1315)
+                            elif TaskDetailView.counter < 4:
+                                n = random.randint(1145, 1197)
+                            elif TaskDetailView.counter < 5:
+                                n = random.randint(1316, 1330)
 
                     data = {
                         'data': self.object,
@@ -199,12 +236,12 @@ def count(request):
 
 
 def equation(request):
-    data = {'id': random.randint(90, 187)}
+    data = {'id': random.randint(983, 1012)}
     return render(request, 'topic/equation/theory.html', data)
 
 
 def function(request):
-    data = {'id': random.randint(90, 187)}
+    data = {'id': random.randint(1115, 1144)}
     return render(request, 'topic/function/theory.html', data)
 
 
@@ -214,18 +251,18 @@ def rational(request):
 
 
 def angle(request):
-    data = {'id': random.randint(90, 187)}
+    data = {'id': random.randint(550, 563)}
     return render(request, 'topic/angle/theory.html', data)
 
 
 def periodic(request):
-    data = {'id': random.randint(90, 187)}
+    data = {'id': random.randint(703, 752)}
     return render(request, 'topic/periodic/theory.html', data)
 
 
-def triangle(request):
-    data = {'id': random.randint(90, 187)}
-    return render(request, 'topic/triangle/theory.html', data)
+# def triangle(request):
+#     data = {'id': random.randint(90, 187)}
+#     return render(request, 'topic/triangle/theory.html', data)
 
 
 def area(request):
@@ -239,7 +276,7 @@ def volume(request):
 
 
 def vector(request):
-    data = {'id': random.randint(90, 187)}
+    data = {'id': random.randint(833, 892)}
     return render(request, 'topic/vector/theory.html', data)
 
 
