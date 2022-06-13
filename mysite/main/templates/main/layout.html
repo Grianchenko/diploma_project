@@ -22,18 +22,26 @@
         <ul>
             <li><a href="{% url 'home' %}"><i class="bi bi-house"></i> Главная страница</a></li>
             <li><a href="{% url 'study_plan' %}"><i class="bi bi-calculator"></i> Учебный план</a></li>
-            {% if request.user.is_authenticated %}
+        </ul>
+        {% if request.user.is_authenticated %}
+        <ul>
             <li><a href="{% url 'logout' %}"><i class="bi bi-box-arrow-in-left"></i> Выход</a></li>
-            <li>{{ user.username }} </li>
-            {% else %}
+        </ul>
+        <p>Имя пользователя: <br>{{ user.username }} </p>
+        {% else %}
+        <ul>
             <li><a href="{% url 'login' %}"><i class="bi bi-box-arrow-in-right"></i> Вход</a></li>
             <li><a href="{% url 'register' %}"><i class="bi bi-box-arrow-in-right"></i> Регистрация</a></li>
-            {% endif %}
         </ul>
+        {% endif %}
+
     </aside>
+
     <main>
         {% block content %}
         {% endblock %}
+        <br>
+        <br>
     </main>
 </body>
 </html>

@@ -3,9 +3,37 @@
 {% block title %}Площадь{% endblock %}
 
 {% block content %}
-    <div class="features">
-        <h1>Площадь</h1>
-        <p>Какая-то теория</p>
+    <div class="justtext">
+        <h1>Объем</h1>
+        <p>В этом разделе мы рассмотрим площади необходимых для решения задач по физике геометрических <b>фигур</b>.</p>
+
+        <h2>Квадрат</h2>
+        <br>
+        {% load static %} <img src="{% static 'topic/img/sq_1.PNG'%}" width="500px">
+        <p>Площадь: \(S=a^2\)</p>
+
+        <h2>Прямоугольник</h2><br>
+        {% load static %} <img src="{% static 'topic/img/sq_2.PNG'%}" width="500px">
+        <p>Площадь: \(S=lh\)</p>
+
+        <h2>Треугольник</h2><br>
+        {% load static %} <img src="{% static 'topic/img/sq_3.PNG'%}" width="500px">
+        <p>Площадь: \(S=\dfrac{ah}{2}\)</p>
+
+        <h2>Прямоугольный треугольник</h2><br>
+        {% load static %} <img src="{% static 'topic/img/sq_4.PNG'%}" width="500px">
+        <p>Площадь: \(S=\dfrac{ab}{2}\)</p>
+
+        <h2>Параллелограмм</h2><br>
+        {% load static %} <img src="{% static 'topic/img/sq_6.PNG'%}" width="500px">
+        <p>Площадь: \(S=lh=al\sin{\alpha}\)</p>
+
+        <h2>Круг</h2><br>
+        {% load static %} <img src="{% static 'topic/img/sq_5.PNG'%}" width="500px">
+        <p>Площадь: \(S=\pi r^2\)</p>
+        <p>Длина окружности: \(S=2\pi r=\pi d\)</p>
+
+        <br>
         <a href="{% url 'task' id %}"><button class="btn btn-success" type="submit">Начать решать!</button></a>
     </div>
 {% endblock %}

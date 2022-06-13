@@ -26,7 +26,7 @@ def all_topics(request):
                    'Стандартный вид числа': 'standard', 'Степень': 'power',
                    'Тригонометрия': 'periodic', 'Угол': 'angle', 'Уравнения': 'equation', 'Функция': 'function',
                    }
-    }  # 'Логарифм': 'log', 'Производная': 'derivative', 'Интеграл': 'integral', 'Треугольник': 'triangle',
+    }  # 'Логарифм': 'log', 'Производная': 'derivative', 'Интеграл': 'integral',
     return render(request, 'topic/all_topics.html', data)
 
 
@@ -52,15 +52,71 @@ class AdmissionTaskDetailView(DetailView, FormView):
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
         if request.method == 'POST':
-            if float(request.POST.get("answer")) != self.object.answer:
-                Theme.objects.create(theme_name='Рациональная дробь', theme_link='rational', user_id=request.user.id)
-                Theme.objects.create(theme_name='Округление', theme_link='rounding', user_id=request.user.id)
-                Theme.objects.create(theme_name='Процент', theme_link='percent', user_id=request.user.id)
-            n = self.object.id + 1
-            counter = n
-            if counter > 10:
+            user_answer = float(request.POST.get("answer"))
+            if user_answer != self.object.answer:
+                if self.object.id == 1:
+                    if user_answer == 690:
+                        Theme.objects.create(theme_name='Вектор', theme_link='vector', user_id=request.user.id)
+                    else:
+                        Theme.objects.create(theme_name='Вектор', theme_link='vector', user_id=request.user.id)
+                        Theme.objects.create(theme_name='Тригонометрия', theme_link='periodic', user_id=request.user.id)
+                if self.object.id == 2:
+                    Theme.objects.create(theme_name='Уравнения', theme_link='equation', user_id=request.user.id)
+                    Theme.objects.create(theme_name='Арифметика', theme_link='count', user_id=request.user.id)
+                if self.object.id == 3:
+                    if user_answer == 9.6:
+                        Theme.objects.create(theme_name='Угол', theme_link='angle', user_id=request.user.id)
+                    else:
+                        Theme.objects.create(theme_name='Угол', theme_link='angle', user_id=request.user.id)
+                        Theme.objects.create(theme_name='Тригонометрия', theme_link='periodic', user_id=request.user.id)
+                        Theme.objects.create(theme_name='Вектор', theme_link='vector', user_id=request.user.id)
+                if self.object.id == 4:
+                    if abs(user_answer - self.object.answer) < 0.2:
+                        Theme.objects.create(theme_name='Округление', theme_link='rounding', user_id=request.user.id)
+                    elif user_answer % self.object.answer == 0 or self.object.answer % user_answer == 0:
+                        Theme.objects.create(theme_name='Стандартный вид числа', theme_link='standard',
+                                             user_id=request.user.id)
+                        Theme.objects.create(theme_name='Степень', theme_link='power', user_id=request.user.id)
+                    else:
+                        Theme.objects.create(theme_name='Округление', theme_link='rounding', user_id=request.user.id)
+                        Theme.objects.create(theme_name='Стандартный вид числа', theme_link='standard',
+                                             user_id=request.user.id)
+                        Theme.objects.create(theme_name='Степень', theme_link='power', user_id=request.user.id)
+                        Theme.objects.create(theme_name='Площадь', theme_link='area', user_id=request.user.id)
+                        Theme.objects.create(theme_name='Арифметика', theme_link='count', user_id=request.user.id)
+                if self.object.id == 5:
+                    if abs(user_answer - self.object.answer) < 2:
+                        Theme.objects.create(theme_name='Округление', theme_link='rounding', user_id=request.user.id)
+                    elif user_answer % self.object.answer == 0 or self.object.answer % user_answer == 0:
+                        Theme.objects.create(theme_name='Стандартный вид числа', theme_link='standard',
+                                             user_id=request.user.id)
+                    else:
+                        Theme.objects.create(theme_name='Округление', theme_link='rounding', user_id=request.user.id)
+                        Theme.objects.create(theme_name='Стандартный вид числа', theme_link='standard',
+                                             user_id=request.user.id)
+                        Theme.objects.create(theme_name='Объем', theme_link='volume', user_id=request.user.id)
+                        Theme.objects.create(theme_name='Степень', theme_link='power', user_id=request.user.id)
+                if self.object.id == 6:
+                    if abs(user_answer - self.object.answer) < 0.02:
+                        Theme.objects.create(theme_name='Округление', theme_link='rounding', user_id=request.user.id)
+                    else:
+                        Theme.objects.create(theme_name='Округление', theme_link='rounding', user_id=request.user.id)
+                        Theme.objects.create(theme_name='Процент', theme_link='percent', user_id=request.user.id)
+                        Theme.objects.create(theme_name='Арифметика', theme_link='count', user_id=request.user.id)
+                if self.object.id == 7:
+                    Theme.objects.create(theme_name='Арифметика', theme_link='count', user_id=request.user.id)
+                    Theme.objects.create(theme_name='Уравнения', theme_link='equation', user_id=request.user.id)
+                    Theme.objects.create(theme_name='Рациональная дробь', theme_link='rational',
+                                         user_id=request.user.id)
+                    Theme.objects.create(theme_name='Степень', theme_link='power', user_id=request.user.id)
+                if self.object.id == 8:
+                    Theme.objects.create(theme_name='Арифметика', theme_link='count', user_id=request.user.id)
+                    Theme.objects.create(theme_name='Функция', theme_link='function', user_id=request.user.id)
+            temp = self.object.id + 1
+            counter = temp
+            if counter > 8:
                 return render(request, 'topic/admission_done.html')
-            data = {'id': n, 'data': self.object}
+            data = {'id': temp, 'data': self.object}
             return render(request, 'topic/admission_next.html', data)
 
 
@@ -108,6 +164,7 @@ class TaskDetailView(DetailView, FormView):
                         'id': n
                     }
                     return render(request, 'topic/next.html', data)
+
                 elif (self.object.theme in ['power', 'count', 'area', 'angle', 'periodic', 'vector']) \
                         and TaskDetailView.counter < 4:
                     TaskDetailView.counter += 1
@@ -180,10 +237,8 @@ class TaskDetailView(DetailView, FormView):
             else:
                 TaskDetailView.counter = 0
                 wrong_answer = float(request.POST.get("answer"))
-
                 if round(wrong_answer, 0) == wrong_answer:
                     wrong_answer = int(wrong_answer)
-
                 data = {
                     'data': self.object,
                     'wrong_answer': wrong_answer,
@@ -260,7 +315,7 @@ def periodic(request):
     return render(request, 'topic/periodic/theory.html', data)
 
 
-# def triangle(request):
+#     def triangle(request):
 #     data = {'id': random.randint(90, 187)}
 #     return render(request, 'topic/triangle/theory.html', data)
 

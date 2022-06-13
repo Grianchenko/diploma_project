@@ -3,9 +3,97 @@
 {% block title %}Тригонометрия{% endblock %}
 
 {% block content %}
-    <div class="features">
+    <div class="justtext">
         <h1>Тригонометрия</h1>
-        <p>Какая-то теория</p>
+        <h2>Тригонометрические функции</h2>
+        <p>Тригонометрические функции <b>острого угла</b>:</p>
+        <ul>
+            <li>синус \(sin\);</li>
+            <li>косинус \(cos\);</li>
+            <li>тангенс \(tg~ (\tan)\);</li>
+            <li>котангенс \(ctg~ (\cot)\).</li>
+        </ul>
+        {% load static %} <img src="{% static 'topic/img/trig_1.PNG'%}" width="500px">
+        <p>\(\sin{\alpha}=\dfrac{a}{c};~\cos{\alpha}=\dfrac{b}{c};~\tan{\alpha}=\dfrac{a}{b};~\cot{\alpha}=\dfrac{b}{a}.\)</p>
+
+        <p>Тригонометрические функции <b>любого угла</b>:</p>
+        <p>Если угол больше \(90^\circ\), но меньше \(360^\circ\), то его тригонометрические функции определяются следующим образом: находится разность между данным углом и ближайшим к нему из углов \(180^\circ\) и \(360^\circ\), а затем вычисляется нужная функция от этой разницы, а перед результатом ставится знак "\(+\)" или "\(—\)".</p>
+        <p>Примеры:</p>
+        <ul>
+            <li>\(\sin{300^\circ} = -\sin{60^\circ}\) (т.к. \(360^\circ - 300^\circ = 60^\circ\)); \(IV\) четверть;</li>
+            <li>\(\cos{145^\circ} = -\cos{35^\circ}\) (т.к. \(180^\circ - 145^\circ = 35^\circ\)); \(II\) четверть;</li>
+            <li>\(\tan{230^\circ} = +\tan{50^\circ}\) (т.к. \(230^\circ - 180^\circ = 50^\circ\)); \(III\) четверть.</li>
+        </ul>
+
+        <h2>Табличные значения</h2>
+
+        <style type="text/css">
+            .tg  {border-collapse:collapse;border-spacing:0;margin-left:23%;}
+            .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:20px;overflow:hidden;padding:10px 20px;word-break:normal;}
+            .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:20px;font-weight:normal;overflow:hidden;padding:10px 20px;word-break:normal;}
+            .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+        </style>
+        <table class="tg">
+            <thead>
+                <tr>
+                    <th class="tg-0pky">\(\text{Функция}\)</th>
+                    <th class="tg-0pky">\(0^\circ\)</th>
+                    <th class="tg-0pky">\(30^\circ\)</th>
+                    <th class="tg-0pky">\(45^\circ\)</th>
+                    <th class="tg-0pky">\(60^\circ\)</th>
+                    <th class="tg-0pky">\(90^\circ\)</th>
+                    <th class="tg-0pky">\(180^\circ\)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="tg-0pky">\(\sin{\alpha}\)</td>
+                    <td class="tg-0pky">\(0\)</td>
+                    <td class="tg-0pky">\(0.5\)</td>
+                    <td class="tg-0pky">\(\dfrac{1}{\sqrt{2}}\)</td>
+                    <td class="tg-0pky">\(\dfrac{\sqrt{3}}{2}\)</td>
+                    <td class="tg-0pky">\(1\)</td>
+                    <td class="tg-0pky">\(0\)</td>
+                </tr>
+                <tr>
+                    <td class="tg-0pky">\(\cos{\alpha}\)</td>
+                    <td class="tg-0pky">\(1\)</td>
+                    <td class="tg-0pky">\(\dfrac{\sqrt{3}}{2}\)</td>
+                    <td class="tg-0pky">\(\dfrac{1}{\sqrt{2}}\)</td>
+                    <td class="tg-0pky">\(0.5\)</td>
+                    <td class="tg-0pky">\(0\)</td>
+                    <td class="tg-0pky">\(1\)</td>
+                </tr>
+                <tr>
+                    <td class="tg-0pky">\(\tan{\alpha}\)</td>
+                    <td class="tg-0pky">\(0\)</td>
+                    <td class="tg-0pky">\(\dfrac{\sqrt{3}}{3}\)</td>
+                    <td class="tg-0pky">\(1\)</td>
+                    <td class="tg-0pky">\(\sqrt{3}\)</td>
+                    <td class="tg-0pky">\(-\)</td>
+                    <td class="tg-0pky">\(0\)</td>
+                </tr>
+                <tr>
+                    <td class="tg-0pky">\(\cot{\alpha}\)</td>
+                    <td class="tg-0pky">\(-\)</td>
+                    <td class="tg-0pky">\(\sqrt{3}\)</td>
+                    <td class="tg-0pky">\(1\)</td>
+                    <td class="tg-0pky">\(\dfrac{\sqrt{3}}{3}\)</td>
+                    <td class="tg-0pky">\(0\)</td>
+                    <td class="tg-0pky">\(-\)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Основное тригонометрическое тождество</h2>
+        <p><b>Основным тригонометрическим тождеством</b> называют соотношение \(\sin{^2 \alpha}+\cos{^2\alpha}=1\), выполняющееся для произвольного значения \(\alpha\).</p>
+
+        <h2>Тригонометрические функции двойного угла</h2>
+        <p>Синус двойного угла:</p>
+        <p>\(\sin{2\alpha}=2\sin{\alpha}\cos{\alpha};\)</p>
+        <p>Косинус двойного угла:</p>
+        <p>\(\cos{2\alpha}=\cos{^2\alpha}-\sin{^2\alpha}.\)</p>
+        <br>
         <a href="{% url 'task' id %}"><button class="btn btn-success" type="submit">Начать решать!</button></a>
     </div>
 {% endblock %}

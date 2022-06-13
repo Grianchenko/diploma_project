@@ -1,14 +1,18 @@
 body {
-    background: #b0d0e6
+    background: #CFF2E7
+
 }
+
+aside, main {display: block;}
 
 aside {
     float: left;
-    background: #dcdcdc;
+    background: #A7D1F1;
     height: 100vh;
     padding: 2%;
     width: 20%;
     border-right: 5px solid #444444;
+    position: fixed;
 }
 
 aside img {
@@ -35,23 +39,34 @@ aside ul {
 
 aside ul li {
     color: #000000;
+    font-weight: 500;
+    font-size: 18px;
     display: block;
     margin-top: 15px;
+    margin-left: -10px;
     transition: all .5s ease;
 }
 
 
 aside ul a {
     color: #000000;
+    font-weight: 500;
     text-decoration: none;
 }
 
 aside ul li:hover, aside ul a:hover {
-    color: #0000ff;
+    color: #DB6657;
+    font-weight: 500;
     text-decoration: none;
     transform: scale(1.1);
 }
 
+aside p {
+    margin-top: 20%;
+    margin-left: 10px;
+    font-size: 18px;
+    font-weight: 700;
+}
 
 main ul li {
     list-style: none;
@@ -60,13 +75,29 @@ main ul li {
     margin-left: 20%;
 }
 
-main .features h1 {font-size: 50px; margin-left: 22%;}
-main .features p {font-size: 20px; max-width: 800px; margin-top: 50px; margin-left: 23%;}
-main .features ul li {font-size: 20px; max-width: 1000px; margin-top: 20px; margin-left: 22%; color: #000000; transition: all .5s ease;}
+main .features h1 {font-size: 50px; margin-left: 22%; font-weight: 700;}
+main .features p {font-size: 20px; max-width: 1000px; margin-top: 50px; margin-left: 23%; color: #000000;}
+main .features ul li {font-size: 20px; max-width: 1000px; margin-top: 20px; margin-left: 23%; color: #000000; transition: all .5s ease; font-weight: 500;}
 main .features ul a {color: #4000cd; text-decoration: none}
-main .features ul a:hover {color: #0000ff; transform: scale(1.01);}
-main .features ul li:hover {color: #0000ff; transform: scale(1.01);}
-main .features button {margin-left: 5%;}
+main .features ul a:hover {color: #DB6657; transform: scale(1.01);}
+main .features ul li:hover {color: #DB6657; transform: scale(1.01);}
+main .features button {margin-left: 23%;}
+
+
+main .justtext h1 {font-size: 50px; margin-left: 22%; font-weight: 700;}
+main .justtext h2 {font-size: 30px; max-width: 1000px; margin-left: 23%; font-weight: bold; margin-top: 50px;}
+main .justtext p {font-size: 20px; max-width: 1000px; margin-top: 20px; margin-left: 23%; color: #000000;}
+main .justtext ul li {font-size: 20px; max-width: 1000px; margin-top: 10px; margin-left: 23%; color: #000000;}
+main .justtext ul a {color: #4000cd; text-decoration: none}
+main .justtext ul a:hover {color: #0000ff; transform: scale(1.01);}
+main .justtext button {margin-left: 23%; }
+main .justtext img {margin-left: 23%}
+
+
+main .admission h1 {font-size: 50px; margin-left: 22%; font-weight: 700;}
+main .admission p {font-size: 20px; max-width: 10px; margin-top: 50px; margin-left: 23%; color: #000000;}
+main .admission button {margin-left: 23%;}
+
 
 .alert-warning {
     float: left;
@@ -77,7 +108,7 @@ main .features button {margin-left: 5%;}
 }
 
 form {
-    margin-left: 25%;
+    margin-left: 23%;
     width: 500px;
     margin-top: 20px;
 }
