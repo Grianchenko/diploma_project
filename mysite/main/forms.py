@@ -1,8 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
-
-# from .models import ProblemTest
-from django.forms import ModelForm, NumberInput, TextInput, PasswordInput, CharField
+from django.forms import TextInput, PasswordInput, CharField
 
 
 class RegisterUserForm(UserCreationForm):

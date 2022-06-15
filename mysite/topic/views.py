@@ -261,30 +261,6 @@ def rounding(request):
     return render(request, 'topic/rounding/theory.html', data)
 
 
-# def rounding_task(request):
-#
-#     # if request.method == 'POST':
-#     #     instance = Problem.objects.get(id=int(request.POST['my_id']))
-#     #     # form = ProblemForm(request.POST, instance=instance)
-#     #     if float(request.POST.get("answer")) == instance.answer:
-#     #         data = {
-#     #             'data': Problem.objects.get(id=int(request.POST['my_id'])),
-#     #         }
-#     #     else:
-#     #         data = {
-#     #             'data': Problem.objects.get(id=1)
-#     #         }
-#     #     return render(request, 'topic/rounding/task.html', data)
-#
-#     form = ProblemForm()
-#     n = random.randint(1, 40)
-#     data = {
-#         'data': Problem.objects.get(id=n),
-#         'form': form
-#     }
-#     return render(request, f'topic/{Problem.objects.get(id=n).id}', data)
-
-
 def count(request):
     data = {'id': random.randint(316, 394)}
     return render(request, 'topic/count/theory.html', data)
@@ -340,15 +316,15 @@ def percent(request):
     return render(request, 'topic/percent/theory.html', data)
 
 # def log(request):
-#     data = {'id': random.randint(90, 187)}
+#     data = {'id': random.randint()}
 #     return render(request, 'topic/log/theory.html', data)
 #
 #
 # def derivative(request):
-#     data = {'id': random.randint(90, 187)}
+#     data = {'id': random.randint()}
 #     return render(request, 'topic/derivative/theory.html', data)
 #
 #
 # def integral(request):
-#     data = {'id': random.randint(90, 187)}
+#     data = {'id': random.randint()}
 #     return render(request, 'topic/integral/theory.html', data)

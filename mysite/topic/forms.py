@@ -1,4 +1,4 @@
-from .models import Problem, Answer, ProblemTest
+from .models import Problem
 from django.forms import ModelForm, NumberInput
 
 
