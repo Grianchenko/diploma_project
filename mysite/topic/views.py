@@ -104,11 +104,14 @@ class AdmissionTaskDetailView(DetailView, FormView):
                         Theme.objects.create(theme_name='Процент', theme_link='percent', user_id=request.user.id)
                         Theme.objects.create(theme_name='Арифметика', theme_link='count', user_id=request.user.id)
                 if self.object.id == 7:
-                    Theme.objects.create(theme_name='Арифметика', theme_link='count', user_id=request.user.id)
-                    Theme.objects.create(theme_name='Уравнения', theme_link='equation', user_id=request.user.id)
-                    Theme.objects.create(theme_name='Рациональная дробь', theme_link='rational',
-                                         user_id=request.user.id)
-                    Theme.objects.create(theme_name='Степень', theme_link='power', user_id=request.user.id)
+                    if user_answer == 100:
+                        Theme.objects.create(theme_name='Уравнения', theme_link='equation', user_id=request.user.id)
+                    else:
+                        Theme.objects.create(theme_name='Арифметика', theme_link='count', user_id=request.user.id)
+                        Theme.objects.create(theme_name='Уравнения', theme_link='equation', user_id=request.user.id)
+                        Theme.objects.create(theme_name='Рациональная дробь', theme_link='rational',
+                                             user_id=request.user.id)
+                        Theme.objects.create(theme_name='Степень', theme_link='power', user_id=request.user.id)
                 if self.object.id == 8:
                     Theme.objects.create(theme_name='Арифметика', theme_link='count', user_id=request.user.id)
                     Theme.objects.create(theme_name='Функция', theme_link='function', user_id=request.user.id)
